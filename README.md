@@ -6,7 +6,7 @@ Portfolio website showcasing research in artificial intelligence, machine learni
 
 ## Live Website
 
-**https://ibrahimmalik.github.io**
+**https://ibrahimssmalik.github.io**
 
 ## Research Focus
 
