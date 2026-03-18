@@ -1,1321 +1,641 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html data-theme="dark">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-4QY4BTFV37"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-
-        gtag('config', 'G-4QY4BTFV37');
-    </script>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ibrahim Malik - PhD Candidate & AI Security Researcher</title>
-
-    <meta name="description"
-        content="Ibrahim Malik - PhD Candidate in Computer Science at Trinity College Dublin, specializing in AI security, red/blue-teaming in generative AI, and healthcare AI applications.">
-    <meta name="keywords"
-        content="AI Security, Machine Learning, PhD Candidate, Trinity College Dublin, IBM Research, Healthcare AI, Computer Vision, Dublin">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Georgia', 'Times New Roman', serif;
-            line-height: 1.7;
-            color: #2c2c2c;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 25%, #dee2e6 50%, #ced4da 75%, #adb5bd 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(248, 249, 250, 0.95) 100%);
-            backdrop-filter: blur(15px);
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            box-shadow: 0 2px 25px rgba(0, 0, 0, 0.08);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 1.2rem 0;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #4a4a4a;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-            position: relative;
-            font-family: 'Helvetica Neue', sans-serif;
-        }
-
-        .nav-links a:hover {
-            color: #1a1a1a;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -8px;
-            left: 0;
-            background: linear-gradient(90deg, #1a1a1a, #6c757d);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 25%, #e9ecef 50%, #dee2e6 100%);
-            color: #1a1a1a;
-            padding: 140px 0 100px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236c757d' fill-opacity='0.02'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
-            z-index: 1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-        }
-
-        .hero h1 {
-            font-size: 4rem;
-            margin-bottom: 1.5rem;
-            font-weight: 300;
-            letter-spacing: -0.05em;
-            background: linear-gradient(135deg, #1a1a1a 0%, #495057 100%);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .hero .subtitle {
-            font-size: 1.4rem;
-            margin-bottom: 2rem;
-            color: #495057;
-            font-weight: 400;
-            font-style: italic;
-        }
-
-        .hero .description {
-            font-size: 1.1rem;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            color: #6c757d;
-            font-family: 'Helvetica Neue', sans-serif;
-            line-height: 1.8;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-
-        .btn {
-            padding: 14px 35px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-            font-family: 'Helvetica Neue', sans-serif;
-            letter-spacing: 0.02em;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, #343a40 0%, #495057 100%);
-            color: white;
-            border: 2px solid #343a40;
-            box-shadow: 0 4px 15px rgba(52, 58, 64, 0.2);
-        }
-
-        .btn-primary:hover {
-            background: linear-gradient(135deg, #495057 0%, #6c757d 100%);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(52, 58, 64, 0.3);
-        }
-
-        .btn-secondary {
-            background: transparent;
-            color: #343a40;
-            border: 2px solid #343a40;
-        }
-
-        .btn-secondary:hover {
-            background: #343a40;
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        section {
-            padding: 100px 0;
-        }
-
-        .section-light {
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-        }
-
-        .section-dark {
-            background: linear-gradient(135deg, #f1f3f4 0%, #e9ecef 100%);
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 4rem;
-            color: #1a1a1a;
-            font-weight: 300;
-            letter-spacing: -0.03em;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 2px;
-            background: linear-gradient(90deg, #1a1a1a, #6c757d);
-            bottom: -20px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        @media (max-width: 1200px) {
-            .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .skill-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.8) 100%);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 8px 40px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            backdrop-filter: blur(10px);
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 50px rgba(0, 0, 0, 0.12);
-        }
-
-        .skill-card h3 {
-            color: #1a1a1a;
-            margin-bottom: 1.5rem;
-            font-size: 1.4rem;
-            font-weight: 500;
-            font-family: 'Helvetica Neue', sans-serif;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.8rem;
-        }
-
-        .tag {
-            background: linear-gradient(135deg, rgba(52, 58, 64, 0.08) 0%, rgba(108, 117, 125, 0.05) 100%);
-            color: #495057;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            border: 1px solid rgba(52, 58, 64, 0.1);
-            font-family: 'Helvetica Neue', sans-serif;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .project-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.9) 100%);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 45px rgba(0, 0, 0, 0.1);
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0, 0, 0, 0.08);
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 60px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, #343a40 0%, #495057 100%);
-            color: white;
-            padding: 2rem;
-            position: relative;
-        }
-
-        .project-header::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-        }
-
-        .project-content {
-            padding: 2rem;
-        }
-
-        .project-title {
-            font-size: 1.5rem;
-            margin-bottom: 0.8rem;
-            font-weight: 500;
-            font-family: 'Helvetica Neue', sans-serif;
-        }
-
-        .project-subtitle {
-            opacity: 0.85;
-            font-size: 1rem;
-            font-style: italic;
-        }
-
-        .project-description {
-            margin-bottom: 1.5rem;
-            color: #495057;
-            font-size: 1.05rem;
-            line-height: 1.7;
-        }
-
-        .project-highlights {
-            list-style: none;
-            margin-bottom: 2rem;
-        }
-
-        .project-highlights li {
-            padding: 0.5rem 0;
-            color: #495057;
-            font-size: 0.95rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .project-highlights li:before {
-            content: "▸";
-            color: #343a40;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .project-link {
-            color: #343a40;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
-            font-family: 'Helvetica Neue', sans-serif;
-        }
-
-        .project-link:hover {
-            color: #6c757d;
-            text-decoration: underline;
-        }
-
-        .timeline {
-            position: relative;
-            max-width: 900px;
-            margin: 0 auto;
-            padding-left: 40px;
-        }
-
-        .timeline::after {
-            content: '';
-            position: absolute;
-            width: 3px;
-            background: linear-gradient(180deg, #343a40 0%, #6c757d 50%, #adb5bd 100%);
-            top: 0;
-            bottom: 0;
-            left: 20px;
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 40px;
-            width: 100%;
-        }
-
-        .timeline-item::after {
-            content: '';
-            position: absolute;
-            width: 20px;
-            height: 20px;
-            left: -30px;
-            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-            border: 4px solid #343a40;
-            top: 20px;
-            border-radius: 50%;
-            z-index: 1;
-        }
-
-        .left,
-        .right {
-            left: 0;
-        }
-
-        .timeline-content {
-            padding: 2rem 2.5rem;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.9) 100%);
-            position: relative;
-            border-radius: 8px;
-            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            margin-left: 20px;
-        }
-
-        .timeline-content h3 {
-            color: #1a1a1a;
-            margin-bottom: 0.8rem;
-            font-size: 1.3rem;
-            font-weight: 500;
-            font-family: 'Helvetica Neue', sans-serif;
-        }
-
-        .timeline-date {
-            color: #6c757d;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .timeline-location {
-            color: #6c757d;
-            font-size: 0.95rem;
-            font-style: italic;
-            margin-bottom: 0.5rem;
-        }
-
-        .timeline-supervisor {
-            color: #495057;
-            font-size: 0.9rem;
-            margin-bottom: 1rem;
-        }
-
-        .timeline-description {
-            color: #495057;
-            line-height: 1.7;
-        }
-
-        .timeline-description>p {
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-        }
-
-        .achievement-list {
-            list-style: none;
-            margin: 1rem 0 0 0;
-        }
-
-        .achievement-list li {
-            padding: 0.4rem 0;
-            color: #495057;
-            font-size: 0.95rem;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .achievement-list li:before {
-            content: "•";
-            color: #343a40;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            font-size: 1.2rem;
-        }
-
-        .experience-category {
-            margin-bottom: 4rem;
-        }
-
-        .category-title {
-            font-size: 2rem;
-            color: #1a1a1a;
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-            text-align: center;
-            position: relative;
-            font-family: 'Helvetica Neue', sans-serif;
-        }
-
-        .category-title::after {
-            content: '';
-            position: absolute;
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(90deg, #343a40, #6c757d);
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-
-        .leadership-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        @media (max-width: 1200px) {
-            .leadership-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        .leadership-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.9) 100%);
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-            transition: transform 0.3s ease;
-        }
-
-        .leadership-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .leadership-card h4 {
-            color: #1a1a1a;
-            margin-bottom: 0.8rem;
-            font-size: 1.2rem;
-            font-weight: 500;
-            font-family: 'Helvetica Neue', sans-serif;
-        }
-
-        .leadership-role {
-            color: #343a40;
-            font-size: 0.95rem;
-            font-weight: 500;
-            margin-bottom: 1rem;
-            font-style: italic;
-        }
-
-        .leadership-card p:last-child {
-            color: #6c757d;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .publications-grid {
-            display: grid;
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .publication-card {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 249, 250, 0.9) 100%);
-            padding: 2.5rem;
-            border-radius: 8px;
-            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.06);
-        }
-
-        .publication-title {
-            font-size: 1.3rem;
-            color: #1a1a1a;
-            margin-bottom: 0.8rem;
-            font-weight: 500;
-            font-family: 'Helvetica Neue', sans-serif;
-        }
-
-        .publication-venue {
-            color: #495057;
-            font-style: italic;
-            margin-bottom: 1rem;
-            font-size: 1.05rem;
-        }
-
-        .publication-details {
-            color: #6c757d;
-            font-size: 0.95rem;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2.5rem;
-            margin-top: 3rem;
-        }
-
-        .contact-item {
-            text-align: center;
-            padding: 2.5rem;
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 249, 250, 0.8) 100%);
-            border-radius: 8px;
-            box-shadow: 0 8px 35px rgba(0, 0, 0, 0.08);
-            border: 1px solid rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover {
-            transform: translateY(-5px);
-        }
-
-        .contact-icon {
-            width: 70px;
-            height: 70px;
-            background: linear-gradient(135deg, #343a40 0%, #495057 100%);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-size: 1.8rem;
-            color: white;
-            font-family: 'Helvetica Neue', sans-serif;
-            font-weight: 300;
-        }
-
-        .contact-item h3 {
-            margin-bottom: 0.8rem;
-            color: #1a1a1a;
-            font-family: 'Helvetica Neue', sans-serif;
-            font-weight: 500;
-        }
-
-        .contact-item a {
-            color: #495057;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: #1a1a1a;
-            text-decoration: underline;
-        }
-
-        .academic-highlight {
-            background: linear-gradient(135deg, rgba(52, 58, 64, 0.05) 0%, rgba(108, 117, 125, 0.03) 100%);
-            border-left: 4px solid #343a40;
-            padding: 1.5rem;
-            margin: 2rem 0;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .metric-highlight {
-            font-weight: 600;
-            color: #343a40;
-            background: rgba(52, 58, 64, 0.08);
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            font-family: 'Helvetica Neue', sans-serif;
-        }
-
-        footer {
-            background: linear-gradient(135deg, #343a40 0%, #495057 100%);
-            color: rgba(255, 255, 255, 0.9);
-            text-align: center;
-            padding: 3rem 0;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.8rem;
-            }
-
-            .nav-links {
-                flex-wrap: wrap;
-                gap: 1.5rem;
-                justify-content: center;
-            }
-
-            .timeline {
-                padding-left: 30px;
-            }
-
-            .timeline::after {
-                left: 15px;
-            }
-
-            .timeline-item::after {
-                left: -25px;
-            }
-
-            .timeline-content {
-                margin-left: 15px;
-            }
-
-            .section-title {
-                font-size: 2.2rem;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            animation: fadeInUp 0.8s ease forwards;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>Ibrahim Malik</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300;400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script>
+    (function() {
+      const theme = localStorage.getItem('theme-preference') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+  </script>
+  <style>
+    /* ── TOKENS ── */
+    :root {
+      --bg:         #faf8f2;
+      --bg-alt:     #f0ede6;
+      --surface:    #ffffff;
+      --border:     #e0ddd5;
+      --border-light:#e5e5e5;
+      --text:       #222222;
+      --text-muted: #727272;
+      --text-faint: #999999;
+      --accent:     #267cb9;
+      --accent-hover:#006699;
+      --bg-hover:   #ffffff;
+      --timeline-line:#cccccc;
+      --timeline-dot: #666666;
+      --tag-new:    #856404;
+      --tag-new-bg: #fff3cd;
+      --tag-paper:  #2e6b2e;
+      --tag-paper-bg:#e8f4e8;
+      --tag-code:   #1565c0;
+      --tag-code-bg:#e3f2fd;
+      --tag-talk:   #7b1fa2;
+      --tag-talk-bg:#f3e5f5;
+      --shadow-soft:   rgba(0,0,0,0.06);
+      --shadow-medium: rgba(0,0,0,0.08);
+      --sidebar-w:  270px;
+      --radius:     3px;
+      --toggle-w:   44px;
+      --toggle-h:   22px;
+    }
+    [data-theme="dark"] {
+      --bg:         #1a1a1a;
+      --bg-alt:     #1e1e1e;
+      --surface:    #242424;
+      --border:     #3a3a3a;
+      --border-light:#333333;
+      --text:       #e8e8e8;
+      --text-muted: #a0a0a0;
+      --text-faint: #707070;
+      --accent:     #5ba3d9;
+      --accent-hover:#7bbfef;
+      --bg-hover:   #2a2a2a;
+      --shadow-soft:   rgba(0,0,0,0.2);
+      --shadow-medium: rgba(0,0,0,0.3);
+      --timeline-line:#444444;
+      --timeline-dot: #888888;
+      --tag-new:    #e0c67a;
+      --tag-new-bg: #3d3520;
+      --tag-paper:  #7ac77a;
+      --tag-paper-bg:#1e2e1e;
+      --tag-code:   #6eb5e8;
+      --tag-code-bg:#1a2a3a;
+      --tag-talk:   #c490d4;
+      --tag-talk-bg:#2a1a2e;
+    }
+
+    /* ── RESET ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 14px;
+      line-height: 1.6;
+      padding: 50px;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.25s, color 0.25s;
+    }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── LAYOUT ── */
+    .wrapper {
+      margin: 0;
+    }
+
+    /* ── SIDEBAR ── */
+    header {
+      width: var(--sidebar-w);
+      position: fixed;
+      top: 50px;
+      left: 50px;
+      bottom: 50px;
+      width: 270px;
+      overflow-y: auto;
+      padding: 0;
+      background: var(--bg);
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      transition: background 0.25s;
+    }
+
+    header h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 500;
+      margin-top: 8px;
+    }
+
+    .profile-photo {
+      width: 180px;
+      border-radius: 3px;
+      margin-top: 12px;
+      margin-bottom: 20px;
+    }
+    .profile-photo-placeholder {
+      width: 180px;
+      height: 180px;
+      border-radius: 3px;
+      margin-top: 12px;
+      margin-bottom: 20px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text-muted);
+      font-size: 3rem;
+    }
+
+    .sidebar-email {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      word-break: break-all;
+    }
+
+    .sidebar-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .sidebar-links li { margin: 4px 0; }
+    .sidebar-links a {
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.2rem 0;
+    }
+    .sidebar-links a:hover { color: var(--accent-hover); text-decoration: underline; }
+    .sidebar-links i { margin-right: 4px; }
+
+    header footer {
+      margin-top: 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    header footer small {
+
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+    header footer small a { color: var(--text-muted); }
+
+    /* ── THEME TOGGLE ── */
+    .theme-toggle-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .theme-toggle-icon { font-size: 0.75rem; color: var(--text-muted); }
+    .theme-toggle {
+      position: relative;
+      width: var(--toggle-w);
+      height: var(--toggle-h);
+      border-radius: 999px;
+      background: var(--border);
+      border: none;
+      cursor: pointer;
+      transition: background 0.2s;
+      flex-shrink: 0;
+    }
+    .theme-toggle::after {
+      content: '';
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: var(--surface);
+      transition: transform 0.3s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    }
+    [data-theme="dark"] .theme-toggle::after {
+      transform: translateX(22px);
+    }
+    [data-theme="dark"] .theme-toggle { background: var(--accent); }
+
+    /* ── CONTENT AREA ── */
+    .content-area {
+      margin-left: 310px;
+      display: grid;
+      grid-template-columns: minmax(400px, 580px) minmax(350px, 450px);
+      grid-template-areas:
+        "about news"
+        "publications news";
+      gap: 0 68px;
+      align-items: start;
+    }
+
+    /* ── SECTIONS ── */
+    .about-section {
+      grid-area: about;
+      padding-left: 8px;
+    }
+    .news-section {
+      grid-area: news;
+    }
+    .publications-section {
+      grid-area: publications;
+      padding-top: 2rem;
+      padding-left: 8px;
+    }
+
+    .about-section h1,
+    .news-section h1,
+    .publications-section h1 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -0.01em;
+      margin: 30px 0 20px;
+      color: var(--text);
+    }
+
+    .about-section > h1:first-child,
+    .news-section > h1:first-child,
+    .publications-section > h1:first-child {
+      margin-top: 0;
+    }
+
+    .about-section h2 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 1.1;
+      margin: 30px 0 20px;
+      color: var(--text);
+    }
+
+    .about-section p {
+      max-width: 68ch;
+      color: var(--text-muted);
+      margin: 0 0 20px;
+    }
+
+    .about-section > p:first-of-type {
+      margin-top: 25px;
+    }
+
+    /* ── TIMELINE ── */
+    .timeline {
+      position: relative;
+      padding-left: 24px;
+      margin: 30px 0;
+    }
+    /* vertical line */
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 6px;
+      bottom: 20px;
+      width: 1px;
+      background: var(--timeline-line);
+    }
+
+    .timeline-item {
+      position: relative;
+      margin-bottom: 24px;
+    }
+    /* dot */
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -21px;
+      top: 6px;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--timeline-dot);
+    }
+    .timeline-item.highlight::before {
+      background: var(--accent);
+    }
+
+    .timeline-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+    }
+    .timeline-date {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+      max-width: 45%;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .timeline-title {
+      font-size: 15px;
+      font-weight: 300;
+      color: var(--text);
+      margin: 0 0 6px;
+      line-height: 1.35;
+    }
+    .timeline-description {
+      font-size: 14px;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .timeline-item.highlight { padding-left: 0.9rem; }
+    .timeline-box {
+      display: block;
+      padding: 14px 16px;
+      border-radius: 0;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      margin-bottom: 4px;
+      position: relative;
+      box-shadow: inset 0 2px 4px var(--shadow-medium), inset 0 1px 2px var(--shadow-soft);
+      transition: all 0.25s ease-out;
+      text-decoration: none;
+      color: inherit;
+    }
+    .timeline-box:hover {
+      background: var(--bg-hover);
+      box-shadow: 0 2px 8px var(--shadow-medium), 0 4px 12px var(--shadow-soft);
+      transform: translateY(-2px);
+      text-decoration: none;
+    }
+    .timeline-box .timeline-title { color: var(--text); }
+    .timeline-header {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.25rem;
+    }
+
+    /* tags */
+    .tag {
+      font-size: 10px;
+      font-weight: bold;
+      padding: 2px 6px;
+      border-radius: 2px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      display: inline-block;
+      margin-right: 6px;
+    }
+    .tag.new   { color: var(--tag-new);   background: var(--tag-new-bg); }
+    .tag.paper { color: var(--tag-paper); background: var(--tag-paper-bg); }
+    .tag.code  { color: var(--tag-code);  background: var(--tag-code-bg); }
+    .tag.talk  { color: var(--tag-talk);  background: var(--tag-talk-bg); }
+
+    /* ── PUBLICATIONS ── */
+    .publications-section p {
+      margin: 0 0 20px;
+      max-width: 72ch;
+      font-size: 14px;
+      color: var(--text-muted);
+    }
+    .publications-section strong {
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    /* ── PAGE FOOTER (narrow screens) ── */
+    .page-footer {
+      display: none;
+      padding: 1.5rem;
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1200px) {
+      .content-area {
+        grid-template-columns: 1fr;
+        grid-template-areas:
+          "about"
+          "publications"
+          "news";
+        gap: 30px 0;
+      }
+    }
+
+    @media (max-width: 960px) {
+      header {
+        position: static;
+        width: 100%;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        padding: 1.25rem;
+        gap: 1rem;
+        border-bottom: 1px solid var(--border);
+      }
+      header h1 { width: 100%; }
+      .profile-photo-placeholder { width: 80px; aspect-ratio: 1; font-size: 1.5rem; }
+      header footer { display: none; }
+      .page-footer { display: flex; }
+
+      .content-area {
+        margin-left: 0;
+        padding: 1.5rem 1.25rem;
+      }
+    }
+  </style>
 </head>
-
 <body>
+  <div class="wrapper">
+
+    <!-- ── SIDEBAR ── -->
     <header>
-        <nav class="container">
-            <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">Research</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#publications">Publications</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
+      <h1>Ibrahim Malik</h1>
+
+      <div class="profile-photo-placeholder" aria-label="Profile photo placeholder">
+        <i class="fa-regular fa-user"></i>
+      </div>
+
+      <p class="sidebar-email">malikib@tcd.ie<br>Ibrahim.Malik@ibm.com</p>
+
+      <ul class="sidebar-links">
+        <li>
+          <a href="./Ibrahim_Malik_CV.pdf">
+            <i class="fa-regular fa-file fa-fw"></i>
+            <span>CV / Resume</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://scholar.google.com/citations?user=TOBMkB4AAAAJ&hl=en" target="_blank">
+            <i class="fa-brands fa-google-scholar fa-fw"></i>
+            <span>Google Scholar</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://github.com/ibrahimssmalik" target="_blank">
+            <i class="fa-brands fa-github fa-fw"></i>
+            <span>GitHub</span>
+          </a>
+        </li>
+        <li>
+          <a href="https://linkedin.com/in/ibrahimssmalik" target="_blank">
+            <i class="fa-brands fa-linkedin fa-fw"></i>
+            <span>LinkedIn</span>
+          </a>
+        </li>
+      </ul>
+
+      <footer>
+        <div class="theme-toggle-wrapper">
+          <span class="theme-toggle-icon sun"><i class="fa-solid fa-sun"></i></span>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode"></button>
+          <span class="theme-toggle-icon moon"><i class="fa-solid fa-moon"></i></span>
+        </div>
+        <small>Theme forked from <a href="https://github.com/orderedlist" target="_blank">orderedlist</a></small>
+      </footer>
     </header>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Ibrahim Malik</h1>
-                    <p class="subtitle">PhD Candidate in Computer Science | AI Security Researcher</p>
-                    <p class="description">
-                        Advancing AI security through research in red/blue-teaming methodologies for generative AI
-                        systems. Currently pursuing PhD at Trinity College Dublin in collaboration with IBM Research,
-                        specializing in adversarial attacks on large language models, defense mechanisms, and safety
-                        evaluation frameworks.
-                    </p>
-                    <div class="cta-buttons">
-                        <a href="#projects" class="btn btn-primary">Research Portfolio</a>
-                        <a href="#contact" class="btn btn-secondary">Curriculum Vitae</a>
-                    </div>
-                </div>
+    <!-- ── MAIN CONTENT ── -->
+    <div class="content-area">
+
+      <!-- ABOUT -->
+      <article class="about-section">
+        <h1>About</h1>
+
+        <p>I am a first-year PhD candidate in Computer Science at <a href="https://www.tcd.ie/" target="_blank">Trinity College Dublin</a> and a Pre-Doctoral Researcher at <a href="https://research.ibm.com/" target="_blank">IBM Research</a>. My research sits at the intersection of AI and software security, with a focus on the security of LLM-generated code, static analysis, abstract interpretation, and LLM-based vulnerability detection.</p>
+
+        <p>I am a member of the <a href="https://secqdevops.eu/" target="_blank">Horizon Europe SecQDevOps</a> project, which addresses security in the development pipeline of quantum software. I am supervised by <a href="https://research.ibm.com/people/giulio-zizzo" target="_blank">Dr. Giulio Zizzo</a> at IBM Research and <a href="https://www.adaptcentre.ie/experts/john-d-kelleher/" target="_blank">Prof. John Kelleher</a> at Trinity College Dublin.</p>
+
+        <p>Prior to my PhD, I completed an MSc in Data Analytics (First Class Honours) at the <a href="https://www.ncirl.ie/" target="_blank">National College of Ireland</a>, where my thesis examined enhancing leukemia diagnosis with synthetic data and explainable deep learning. I obtained my BEng in Electrical and Electronic Engineering at <a href="https://www.curtin.edu.my/" target="_blank">Curtin University</a>.</p>
+
+        <h2>Code Generation Security</h2>
+
+        <p>My primary focus is on the security of LLM-generated code — how AI-assisted development workflows can inadvertently introduce vulnerabilities, and how we can detect and mitigate this. I am evaluating static analysis tools (SAST) against synthetic benchmarks and real-world CVE datasets to understand where current tooling falls short.</p>
+
+        <h2>Abstract Interpretation and LLM-Based Vulnerability Detection</h2>
+
+        <p>Beyond classical SAST, I am exploring how abstract interpretation and large language models can be combined for more principled vulnerability detection — improving precision and recall while providing formal grounding for the analysis.</p>
+
+        <h2>Quantum Software Security</h2>
+
+        <p>As part of the SecQDevOps Horizon Europe project, I am investigating security challenges specific to quantum software development pipelines — an emerging area where security tooling and best practices are still largely undefined.</p>
+
+      </article>
+
+      <!-- NEWS -->
+      <aside class="news-section">
+        <h1>News &amp; Updates</h1>
+
+        <div class="timeline">
+
+          <div class="timeline-item highlight">
+            <a href="https://gemss.ai/2026/" class="timeline-box timeline-box-link" target="_blank">
+              <div class="timeline-header">
+                <span class="tag new">School</span>
+                <span class="timeline-date">March 2026</span>
+              </div>
+              <h3 class="timeline-title">GeMSS 2026 — Generative Modeling Spring School</h3>
+              <p class="timeline-description">Attending at Imperial College London, covering deep generative models, diffusion models, and autoregressive architectures.</p>
+            </a>
+          </div>
+
+          <div class="timeline-item highlight">
+            <a href="https://secqdevops.eu/" class="timeline-box timeline-box-link" target="_blank">
+              <div class="timeline-header">
+                <span class="tag code">Project</span>
+                <span class="timeline-date">2025–present</span>
+              </div>
+              <h3 class="timeline-title">SecQDevOps — Horizon Europe</h3>
+              <p class="timeline-description">Contributing to security tooling for quantum software development pipelines.</p>
+            </a>
+          </div>
+
+          <div class="timeline-item highlight">
+            <a href="https://aicsconf.org/" class="timeline-box timeline-box-link" target="_blank">
+              <div class="timeline-header">
+                <span class="tag paper">Paper</span>
+                <span class="timeline-date">December 2025</span>
+              </div>
+              <h3 class="timeline-title">Full paper &amp; session chair — AICS 2025</h3>
+              <p class="timeline-description">Presented "Architecture-Dependent Synthetic Data Strategies for Leukemia Diagnosis with Explainable Deep Learning" at the AI &amp; Cognitive Science conference.</p>
+            </a>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-row">
+              <h3 class="timeline-title">PhD commenced — Trinity College Dublin</h3>
+              <span class="timeline-date">September 2025</span>
             </div>
-        </section>
+            <p class="timeline-description">Joined the School of Computer Science and Statistics as a PhD candidate, co-located with IBM Research Ireland.</p>
+          </div>
 
-        <section id="about" class="section-light">
-            <div class="container">
-                <h2 class="section-title">Research Expertise</h2>
-                <div class="academic-highlight">
-                    <p><em>Specializing in AI security and safety, with focus on adversarial machine learning,
-                            generative AI robustness, and privacy-preserving techniques in healthcare applications.
-                            Published researcher with expertise in explainable AI, synthetic data generation, and
-                            enterprise AI deployment security.</em></p>
-                </div>
-                <div class="skills-grid">
-                    <div class="skill-card fade-in">
-                        <h3>AI Security & Safety</h3>
-                        <div class="skill-tags">
-                            <span class="tag">Red/Blue-Teaming</span>
-                            <span class="tag">Adversarial Attacks</span>
-                            <span class="tag">Defense Mechanisms</span>
-                            <span class="tag">LLM Security</span>
-                            <span class="tag">AI Safety Evaluation</span>
-                            <span class="tag">Agent-Based Systems</span>
-                        </div>
-                    </div>
-                    <div class="skill-card fade-in">
-                        <h3>Machine Learning Research</h3>
-                        <div class="skill-tags">
-                            <span class="tag">Generative Adversarial Networks</span>
-                            <span class="tag">Vision Transformers</span>
-                            <span class="tag">Explainable AI</span>
-                            <span class="tag">Medical Imaging</span>
-                            <span class="tag">Deep Learning</span>
-                            <span class="tag">TensorFlow</span>
-                        </div>
-                    </div>
-                    <div class="skill-card fade-in">
-                        <h3>Data Science & Analytics</h3>
-                        <div class="skill-tags">
-                            <span class="tag">Statistical Modeling</span>
-                            <span class="tag">Predictive Analytics</span>
-                            <span class="tag">Time Series Analysis</span>
-                            <span class="tag">Hypothesis Testing</span>
-                            <span class="tag">R & Python</span>
-                            <span class="tag">ARIMA Modeling</span>
-                        </div>
-                    </div>
-                    <div class="skill-card fade-in">
-                        <h3>Technical Infrastructure</h3>
-                        <div class="skill-tags">
-                            <span class="tag">Cloud Computing</span>
-                            <span class="tag">Azure & Databricks</span>
-                            <span class="tag">High-Performance Computing</span>
-                            <span class="tag">Docker Containerization</span>
-                            <span class="tag">Version Control</span>
-                            <span class="tag">Reproducible Research</span>
-                        </div>
-                    </div>
-                </div>
+          <div class="timeline-item highlight">
+            <a href="https://ieeexplore.ieee.org/document/11166046" class="timeline-box timeline-box-link" target="_blank">
+              <div class="timeline-header">
+                <span class="tag paper">Paper</span>
+                <span class="timeline-date">August 2025</span>
+              </div>
+              <h3 class="timeline-title">Published at IEEE ACDSA 2025</h3>
+              <p class="timeline-description">Leukemia Classification through Deep Learning Techniques and Generative AI.</p>
+            </a>
+          </div>
+
+<div class="timeline-item">
+            <div class="timeline-row">
+              <h3 class="timeline-title">Citi upStart 2025</h3>
+              <span class="timeline-date">2025</span>
             </div>
-        </section>
+            <p class="timeline-description">Developed an AI-driven startup proposal addressing Sustainable Development Goals in healthcare innovation.</p>
+          </div>
 
-        <section id="projects" class="section-dark">
-            <div class="container">
-                <h2 class="section-title">Research Projects</h2>
-                <div class="projects-grid">
-                    <div class="project-card fade-in">
-                        <div class="project-header">
-                            <h3 class="project-title">Hybrid AI for Leukemia Detection</h3>
-                            <p class="project-subtitle">Master's Thesis Research | Medical AI</p>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Novel architecture combining Generative Adversarial Networks with Vision Transformers
-                                for automated leukemia detection, incorporating explainable AI frameworks for clinical
-                                interpretability.
-                            </p>
-                            <ul class="project-highlights">
-                                <li><span class="metric-highlight">Developed hybrid deep learning system</span>
-                                    combining GANs with Vision Transformers for medical image classification</li>
-                                <li><span class="metric-highlight">Implemented explainability frameworks</span>
-                                    (Grad-CAM, SHAP, LIME) for model interpretation and validation</li>
-                                <li><span class="metric-highlight">Discovered architecture-specific optimization</span>:
-                                    CNNs with conditional GANs vs. Vision Transformers with Wasserstein GANs</li>
-                                <li><span class="metric-highlight">Conducted systematic literature review</span> of 30+
-                                    papers on GANs and Vision Transformers in medical AI</li>
-                                <li><span class="metric-highlight">Validated models on 13,000+ images</span> with
-                                    rigorous metrics for clinical deployment applications</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/ibrahimssmalik/leukemia-ai" class="project-link">Code
-                                    Repository</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card fade-in">
-                        <div class="project-header">
-                            <h3 class="project-title">Socioeconomic Analysis of Disability Prevalence</h3>
-                            <p class="project-subtitle">Large-Scale Data Analysis | Public Health Research</p>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Comprehensive analysis of socioeconomic determinants affecting disability prevalence
-                                using
-                                big data analytics and machine learning on large-scale public health datasets.
-                            </p>
-                            <ul class="project-highlights">
-                                <li>Analyzed <span class="metric-highlight">700,000+ public health records</span> using
-                                    distributed computing</li>
-                                <li>Identified critical correlations: healthcare access (r = -0.26), income (r = 0.12)
-                                </li>
-                                <li>Gradient Boosting model achieved <span class="metric-highlight">R² = 0.72</span>
-                                    predictive performance</li>
-                                <li>Feature importance analysis revealing income (58.5%) and healthcare (28.5%) as
-                                    primary drivers</li>
-                                <li>Cloud-native data pipeline with Azure, PySpark, and multi-database architecture</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/ibrahimssmalik/disability-integrated-analysis"
-                                    class="project-link">Code Repository</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card fade-in">
-                        <div class="project-header">
-                            <h3 class="project-title">Mortality Prediction & Biomedical Text Mining</h3>
-                            <p class="project-subtitle">Epidemiological Modeling | Natural Language Processing</p>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Multi-faceted research combining mortality prediction modeling with large-scale
-                                biomedical literature analysis using advanced machine learning and NLP techniques.
-                            </p>
-                            <ul class="project-highlights">
-                                <li>Classified excess mortality risk regions with <span class="metric-highlight">92%
-                                        accuracy</span></li>
-                                <li>Five regression models achieving <span class="metric-highlight">85%+ R²
-                                        scores</span> for mortality prediction</li>
-                                <li>Analyzed <span class="metric-highlight">6,000+ biomedical abstracts</span> using
-                                    K-Means and LDA</li>
-                                <li>Engineered 10+ features for cross-dataset model optimization</li>
-                                <li>Reproducible research pipeline with comprehensive evaluation metrics</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/ibrahimssmalik/biomedical-mortality-insights"
-                                    class="project-link">Code Repository</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card fade-in">
-                        <div class="project-header">
-                            <h3 class="project-title">IMU-Based Gait Analysis System</h3>
-                            <p class="project-subtitle">Biomedical Engineering | Wearable Technology Research</p>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Development of non-invasive gait analysis system using inertial measurement units
-                                and machine learning for early pathology detection and movement assessment.
-                            </p>
-                            <ul class="project-highlights">
-                                <li>Integrated ESP32 and IMU sensors for multi-segment gait data collection</li>
-                                <li>CNN model achieving <span class="metric-highlight">correlation coefficient
-                                        >0.9</span></li>
-                                <li>5-fold cross-validation ensuring robust model generalization</li>
-                                <li>Data preprocessing pipeline for 20+ Excel files with automated cleaning</li>
-                                <li>Non-invasive approach for early pathology diagnosis applications</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/ibrahimssmalik/imu-based-multisegment-gait-analysis"
-                                    class="project-link">Code Repository</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card fade-in">
-                        <div class="project-header">
-                            <h3 class="project-title">Debenhams Ireland Revival Analytics</h3>
-                            <p class="project-subtitle">Business Intelligence | Operations Research</p>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                Comprehensive business analytics project including data warehousing, CRM implementation,
-                                and Six-Sigma process improvement for retail revival strategy.
-                            </p>
-                            <ul class="project-highlights">
-                                <li>Built MySQL data warehouse with <span class="metric-highlight">150,000+ historical
-                                        records</span></li>
-                                <li>Salesforce CRM implementation with <span class="metric-highlight">8,000+ customer
-                                        profiles</span> migrated</li>
-                                <li>Three interactive Tableau dashboards for real-time business intelligence</li>
-                                <li>Six-Sigma DMAIC methodology for inventory management optimization</li>
-                                <li>Generated 20,000+ synthetic records for GDPR-compliant testing</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/ibrahimssmalik/debenhams-revival" class="project-link">Code
-                                    Repository</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="project-card fade-in">
-                        <div class="project-header">
-                            <h3 class="project-title">Diabetes Readmission Risk Analysis</h3>
-                            <p class="project-subtitle">Healthcare Analytics | Predictive Modeling</p>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-description">
-                                End-to-end healthcare analytics pipeline for predicting diabetes patient readmission
-                                risk using machine learning and interactive visualization systems.
-                            </p>
-                            <ul class="project-highlights">
-                                <li>Processed <span class="metric-highlight">100,000+ patient records</span> with
-                                    optimized SQL queries</li>
-                                <li>Random Forest classifier for readmission prediction across merged datasets</li>
-                                <li>Interactive Plotly/Dash dashboards visualizing 10+ years of diabetes outcomes</li>
-                                <li>Complete ETL pipeline with API integration and multi-database storage</li>
-                                <li>Containerized deployment using Docker for cross-platform compatibility</li>
-                            </ul>
-                            <div class="project-links">
-                                <a href="https://github.com/ibrahimssmalik/integrated-diabetes-analysis"
-                                    class="project-link">Code Repository</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="experience" class="section-light">
-            <div class="container">
-                <h2 class="section-title">Professional Experience</h2>
-
-                <div class="experience-category">
-                    <h3 class="category-title">Research Experience</h3>
-                    <div class="timeline">
-                        <div class="timeline-item left">
-                            <div class="timeline-content fade-in">
-                                <h3>Pre-Doctoral Researcher</h3>
-                                <p class="timeline-date">Sep 2025 - Present</p>
-                                <p class="timeline-location">IBM Research & Trinity College Dublin</p>
-                                <div class="timeline-description">
-                                    <p>Conducting AI security research in collaborative partnership between IBM Research
-                                        and Trinity College Dublin.</p>
-                                    <ul class="achievement-list">
-                                        <li>Specializing in <span class="metric-highlight">adversarial attacks on large
-                                                language models</span> and defense mechanisms development</li>
-                                        <li>Contributing to <span class="metric-highlight">benchmarking datasets</span>
-                                            for AI safety evaluation and model robustness assessment</li>
-                                        <li>Collaborating on <span class="metric-highlight">agent-based systems</span>
-                                            and model context protocols</li>
-                                        <li>Research focus on <span class="metric-highlight">enterprise AI deployment
-                                                security</span></li>
-                                        <li>Advancing methodologies for <span class="metric-highlight">red/blue-teaming
-                                                in generative AI</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item right">
-                            <div class="timeline-content fade-in">
-                                <h3>Artificial Intelligence Research Assistant</h3>
-                                <p class="timeline-date">Jan 2025 - Aug 2025</p>
-                                <p class="timeline-location">School of Computing, National College of Ireland</p>
-                                <p class="timeline-supervisor"><strong>Supervisor:</strong> Dr. Bharat Agarwal</p>
-                                <div class="timeline-description">
-                                    <ul class="achievement-list">
-                                        <li><span class="metric-highlight">Developed hybrid deep learning system</span>
-                                            combining GANs with Vision Transformers for medical image classification
-                                        </li>
-                                        <li><span class="metric-highlight">Implemented explainability frameworks</span>
-                                            (Grad-CAM, SHAP, LIME) for model interpretation and validation</li>
-                                        <li><span class="metric-highlight">Discovered architecture-specific
-                                                optimization</span>: CNNs with conditional GANs vs. Vision Transformers
-                                            with Wasserstein GANs</li>
-                                        <li><span class="metric-highlight">Conducted systematic literature review</span>
-                                            of 30+ papers on GANs and Vision Transformers in medical AI</li>
-                                        <li><span class="metric-highlight">Validated models on 13,000+ images</span>
-                                            with rigorous metrics for clinical deployment applications</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item left">
-                            <div class="timeline-content fade-in">
-                                <h3>Machine Learning Research Assistant</h3>
-                                <p class="timeline-date">Feb 2023 - Sep 2023</p>
-                                <p class="timeline-location">Department of Electrical and Computer Engineering, Curtin
-                                    University Malaysia</p>
-                                <p class="timeline-supervisor"><strong>Supervisor:</strong> Dr. Saaveethya Sivakumar</p>
-                                <div class="timeline-description">
-                                    <ul class="achievement-list">
-                                        <li><span class="metric-highlight">Conducted machine learning research</span> in
-                                            biomechanical gait analysis for medical diagnostics</li>
-                                        <li><span class="metric-highlight">Performed literature review</span> of 30+
-                                            papers on LSTM architectures for time-series analysis</li>
-                                        <li><span class="metric-highlight">Engineered LSTM model</span> achieving 0.86
-                                            correlation coefficient for predictive healthcare applications</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Professional Experience Section -->
-                <div class="experience-category" style="margin-top: 4rem;">
-                    <h3 class="category-title">Industry Experience</h3>
-                    <div class="timeline">
-                        <div class="timeline-item left">
-                            <div class="timeline-content fade-in">
-                                <h3>IT Intern - Data Reporting</h3>
-                                <p class="timeline-date">May 2025 - July 2025</p>
-                                <p class="timeline-location">ELI SFI Coding Club, National College of Ireland</p>
-                                <div class="timeline-description">
-                                    <p>Developed comprehensive data reporting solutions to monitor and analyze student
-                                        performance metrics.</p>
-                                    <ul class="achievement-list">
-                                        <li>Built Power BI dashboards improving reporting speed by <span
-                                                class="metric-highlight">30%</span></li>
-                                        <li>Managed data cleaning and ETL processes using Excel and internal templates
-                                        </li>
-                                        <li>Collaborated on documentation and version control using Notion and GitHub
-                                        </li>
-                                        <li>Streamlined data visualization workflows for educational analytics</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item right">
-                            <div class="timeline-content fade-in">
-                                <h3>Data Science and Business Analytics Intern</h3>
-                                <p class="timeline-date">Jul 2024 - Aug 2024</p>
-                                <p class="timeline-location">The Sparks Foundation (Remote)</p>
-                                <div class="timeline-description">
-                                    <p>Applied machine learning and data visualization techniques to solve real-world
-                                        business and educational challenges.</p>
-                                    <ul class="achievement-list">
-                                        <li>Leveraged supervised ML to predict student scores with <span
-                                                class="metric-highlight">95% accuracy</span></li>
-                                        <li>Implemented Tableau dashboard tracking COVID-19 spread across Europe</li>
-                                        <li>Developed interactive Python visualizations for educational and business
-                                            data</li>
-                                        <li>Presented analytical findings to stakeholders and management</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="timeline-item left">
-                            <div class="timeline-content fade-in">
-                                <h3>R&D Engineer Intern</h3>
-                                <p class="timeline-date">Nov 2021 - Mar 2023</p>
-                                <p class="timeline-location">NCIG (M) Sdn Bhd., Selangor, Malaysia</p>
-                                <div class="timeline-description">
-                                    <p>Contributed to product development and quality assurance processes through
-                                        data-driven analysis and systematic testing.</p>
-                                    <ul class="achievement-list">
-                                        <li>Tracked and managed <span class="metric-highlight">200+ product test
-                                                cases</span> using internal BI tools</li>
-                                        <li>Reduced information retrieval time by <span
-                                                class="metric-highlight">30%</span> through systematic data entry</li>
-                                        <li>Coordinated with cross-functional teams for structured defect analysis</li>
-                                        <li>Built internal data reports supporting engineering KPIs and quality metrics
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Academic Leadership Section -->
-                <div class="experience-category" style="margin-top: 4rem;">
-                    <h3 class="category-title">Academic Leadership & Engagement</h3>
-                    <div class="leadership-grid">
-                        <div class="leadership-card fade-in">
-                            <h4>ACDSA Conference 2025</h4>
-                            <p class="leadership-role">Session Chair: Deep Learning - II</p>
-                            <p>Led academic session on deep learning applications, facilitating scholarly discourse and
-                                peer review processes at the International Conference on Artificial Intelligence,
-                                Computer, Data Sciences and Applications.</p>
-                        </div>
-
-                        <div class="leadership-card fade-in">
-                            <h4>Citi upStart 2025</h4>
-                            <p class="leadership-role">Team-Based Entrepreneurship Program</p>
-                            <p>Developed AI-driven startup proposal addressing Sustainable Development Goals in
-                                healthcare innovation. Collaborated with postgraduate team members on business strategy
-                                and technical implementation.</p>
-                        </div>
-
-                        <div class="leadership-card fade-in">
-                            <h4>IDEATHON 2025</h4>
-                            <p class="leadership-role">3rd Place Winner - Celtify Project</p>
-                            <p>Created AI-powered Celtic language recognition and translation tool with VR simulation
-                                for immersive language learning and cultural preservation initiatives.</p>
-                        </div>
-
-                        <div class="leadership-card fade-in">
-                            <h4>IEEE Society Member</h4>
-                            <p class="leadership-role">Curtin Malaysia Chapter (2023)</p>
-                            <p>Conducted poster presentations and educational talks to high school students on
-                                mathematics and engineering concepts, promoting STEM education and academic engagement.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="publications" class="section-dark">
-            <div class="container">
-                <h2 class="section-title">Publications & Research Output</h2>
-
-                <div class="publications-grid">
-                    <div class="publication-card fade-in">
-                        <div class="publication-title">"Leukemia Classification through Deep Learning Techniques and
-                            Generative AI"</div>
-                        <div class="publication-venue">International Conference on Artificial Intelligence, Computer,
-                            Data Sciences and Applications (ACDSA 2025)</div>
-                        <div class="publication-details">
-                            <p><strong>Authors:</strong> Malik, I., Diang'a, L.J., Stynes, P., Pathak, P., & Sahni, A.
-                            </p>
-                            <p><strong>DOI:</strong> 10.1109/ACDSA65407.2025.11166046 | <strong>Role:</strong> Session
-                                Chair: Deep
-                                Learning - II</p>
-                            <p><strong>Abstract:</strong> Novel hybrid architecture combining GANs and Vision
-                                Transformers for medical image classification, achieving significant improvements in
-                                leukemia detection sensitivity through architecture-specific optimization strategies.
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card fade-in">
-                        <div class="publication-title">"Unlocking Competitive Advantage: The Nexus of IT, Absorptive
-                            Capacity, and Dynamic Capabilities in Organizational Performance"</div>
-                        <div class="publication-venue">Remittances Review, Volume 9, Issue 2</div>
-                        <div class="publication-details">
-                            <p><strong>Authors:</strong> Groenewald, E., Khan, M., Raza, S., Malik, I., Tehseen, R et
-                                al.</p>
-                            <p><strong>DOI:</strong> 10.33282/rr.vx9i2.37 | <strong>Pages:</strong> 631-651</p>
-                            <p><strong>Abstract:</strong> Comprehensive analysis of the relationship between information
-                                technology capabilities, organizational learning capacity, and dynamic capabilities in
-                                driving competitive advantage and performance outcomes.</p>
-                        </div>
-                    </div>
-
-                    <div class="publication-card fade-in">
-                        <div class="publication-title">"Lower Limb Gait Estimation Using Foot Motion and Neural Network"
-                        </div>
-                        <div class="publication-venue">2023 International Conference on Digital Applications,
-                            Transformation & Economy (ICDATE)</div>
-                        <div class="publication-details">
-                            <p><strong>Authors:</strong> J. Lee, I. Malik, A. C. L. Thien and S. Sivakumar</p>
-                            <p><strong>DOI:</strong> 10.1109/ICDATE58146.2023.10248823 | <strong>Location:</strong>
-                                Miri, Sarawak, Malaysia</p>
-                            <p><strong>Abstract:</strong> Development of neural network-based approach for lower limb
-                                gait estimation using foot motion data, contributing to non-invasive movement analysis
-                                and pathology detection methodologies.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 3rem;">
-                    <div class="academic-highlight">
-                        <h3 style="color: #1a1a1a; margin-bottom: 1rem;">Research Interests</h3>
-                        <div
-                            style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem; margin-top: 2rem;">
-                            <div>
-                                <h4 style="color: #343a40; margin-bottom: 0.5rem;">AI Security & Privacy</h4>
-                                <p style="font-size: 0.95rem; color: #6c757d;">Security and privacy implications of
-                                    Large Language Models in enterprise environments</p>
-                            </div>
-                            <div>
-                                <h4 style="color: #343a40; margin-bottom: 0.5rem;">Adversarial AI</h4>
-                                <p style="font-size: 0.95rem; color: #6c757d;">Adversarial attacks and defenses for
-                                    generative AI systems</p>
-                            </div>
-                            <div>
-                                <h4 style="color: #343a40; margin-bottom: 0.5rem;">Healthcare AI</h4>
-                                <p style="font-size: 0.95rem; color: #6c757d;">Privacy-preserving machine learning
-                                    techniques in healthcare applications</p>
-                            </div>
-                            <div>
-                                <h4 style="color: #343a40; margin-bottom: 0.5rem;">Explainable AI</h4>
-                                <p style="font-size: 0.95rem; color: #6c757d;">Explainable AI and Fairness for enhanced
-                                    security in critical systems</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section-light">
-            <div class="container">
-                <h2 class="section-title">Contact & Collaboration</h2>
-                <div class="contact-grid">
-                    <div class="contact-item fade-in">
-                        <div class="contact-icon">@</div>
-                        <h3>Email</h3>
-                        <a href="mailto:ibrahimssmalik@gmail.com">ibrahimssmalik@gmail.com</a>
-                        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">Primary contact for research
-                            collaborations</p>
-                    </div>
-                    <div class="contact-item fade-in">
-                        <div class="contact-icon">in</div>
-                        <h3>LinkedIn</h3>
-                        <a href="https://linkedin.com/in/ibrahimssmalik" target="_blank">ibrahimssmalik</a>
-                        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">Professional network and
-                            updates</p>
-                    </div>
-                    <div class="contact-item fade-in">
-                        <div class="contact-icon">{}</div>
-                        <h3>GitHub</h3>
-                        <a href="https://github.com/ibrahimssmalik" target="_blank">View Research Code</a>
-                        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">Open source projects and
-                            implementations</p>
-                    </div>
-                    <div class="contact-item fade-in">
-                        <div class="contact-icon">•</div>
-                        <h3>Location</h3>
-                        <p>Dublin, Ireland</p>
-                        <p style="font-size: 0.9rem; color: #6c757d; margin-top: 0.5rem;">Available for local
-                            collaborations</p>
-                    </div>
-                </div>
-
-                <div style="text-align: center; margin-top: 4rem;">
-                    <a href="./Ibrahim_Malik_CV.pdf" class="btn btn-primary"
-                        style="background: linear-gradient(135deg, #343a40 0%, #495057 100%); border-color: #343a40; margin-right: 1rem;">Download
-                        Curriculum Vitae</a>
-                    <a href="#" class="btn btn-secondary">Research Portfolio</a>
-                </div>
-
-                <div class="academic-highlight" style="margin-top: 3rem; text-align: center;">
-                    <p><em>"Interested in collaborative research opportunities in AI security, red/blue-teaming
-                            methodologies,
-                            and privacy-preserving machine learning. Open to industry partnerships, academic
-                            collaborations,
-                            and innovative projects that advance the responsible development of secure AI systems."</em>
-                    </p>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 Ibrahim Malik. All rights reserved. | PhD Candidate in Computer Science & AI Security
-                Researcher</p>
         </div>
-        </script>
+      </aside>
+
+      <!-- PUBLICATIONS -->
+      <article class="publications-section">
+        <h1>Selected Publications</h1>
+
+        <p><strong>Architecture-Dependent Synthetic Data Strategies for Leukemia Diagnosis with Explainable Deep Learning</strong><br>
+        I. Malik, B. Agarwal<br>
+        <small>AICS 2025 (in press) | <a href="https://aicsconf.org/" target="_blank">conference</a></small></p>
+
+        <p><strong>Leukemia Classification through Deep Learning Techniques and Generative AI</strong><br>
+        I. Malik, L.J. Diang'a, P. Stynes, P. Pathak, A. Sahni<br>
+        <small>IEEE ACDSA 2025 | <a href="https://doi.org/10.1109/ACDSA65407.2025.11166046" target="_blank">paper</a></small></p>
+
+        <p><strong>Unlocking Competitive Advantage: The Nexus of IT, Absorptive Capacity, and Dynamic Capabilities in Organizational Performance</strong><br>
+        E. Groenewald, M. Khan, S. Raza, I. Malik, R. Tehseen et al.<br>
+        <small>Remittances Review, Vol. 9, Issue 2 | <a href="https://doi.org/10.33282/rr.vx9i2.37" target="_blank">paper</a></small></p>
+
+        <p><strong>Lower Limb Gait Estimation Using Foot Motion and Neural Network</strong><br>
+        J. Lee, I. Malik, A.C.L. Thien, S. Sivakumar<br>
+        <small>IEEE ICDATE 2023 | <a href="https://doi.org/10.1109/ICDATE58146.2023.10248823" target="_blank">paper</a></small></p>
+
+      </article>
+
+    </div><!-- /content-area -->
+  </div><!-- /wrapper -->
+
+  <!-- footer for narrow screens -->
+  <footer class="page-footer">
+    <div class="theme-toggle-wrapper">
+      <span class="theme-toggle-icon sun"><i class="fa-solid fa-sun"></i></span>
+      <button class="theme-toggle" id="themeToggleMobile" aria-label="Toggle dark mode"></button>
+      <span class="theme-toggle-icon moon"><i class="fa-solid fa-moon"></i></span>
+    </div>
+    <small>Theme forked from <a href="https://github.com/orderedlist" target="_blank">orderedlist</a></small>
+  </footer>
+
+  <script>
+    function setTheme(theme) {
+      document.documentElement.setAttribute('data-theme', theme);
+      localStorage.setItem('theme-preference', theme);
+    }
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme');
+      setTheme(current === 'dark' ? 'light' : 'dark');
+    }
+    document.getElementById('themeToggle').addEventListener('click', toggleTheme);
+    document.getElementById('themeToggleMobile').addEventListener('click', toggleTheme);
+
+    // Sync toggle button state on load
+    (function() {
+      const theme = document.documentElement.getAttribute('data-theme');
+      const btns = [document.getElementById('themeToggle'), document.getElementById('themeToggleMobile')];
+      btns.forEach(btn => { if (btn) btn.setAttribute('aria-checked', theme === 'dark'); });
+    })();
+  </script>
 </body>
+</html>
